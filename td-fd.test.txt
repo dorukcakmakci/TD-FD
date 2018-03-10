@@ -1,0 +1,63 @@
+# all programs written TD/FD are parsed starting from the start function (like a predicate with special instantiation and 
+# definition). Every operation that can be done with TD/FD MUST be done in the scope of start. Comments can be written before the
+# start tag and inside but NOT after the end of the start tag. 
+start { #start of the program
+		# variable declaration is shown below
+		var oguz1 = true$ 
+		# const declaration is shown below
+		const _doruk1_ ?first constant? = false$
+		const _doruk2_ ?second constant? = false$
+		
+		# variable assignment is shown below
+		oguz1 = false$
+		var oguz2 = true$
+		var oguz3 = (_doruk1_) || (_doruk2_)$
+
+		# logical compound is shown below
+		var oguz4 = ((((_doruk1_) && (oguz1)) ^ (_doruk2_)) <=> (((oguz2) || (_doruk1_)) => (oguz1)))$
+
+		# if statement without else which includes inhale statement in it's body.
+		if(oguz1 == (_doruk1_)) {
+					inhale (va11, true)$	
+		}$
+
+		# if statement with else which includes inhale statement in it's body. 
+		# else includes exhale statement in it's body
+		if(oguz1 == (oguz2) ) {
+					inhale ( val2, false)$
+		}
+		else{
+				exhale((oguz2))$
+		}$
+
+		#predicate declarations with different parameter count and different body structures
+		predicate1( input1, input2, input3, input4){
+			return true$
+		}$
+		predicate2( input1, input2, input3){
+			return (oguz1)<=>(doruk1)$
+		}$
+		predicate3( input1, input2){
+			return call predicate1(i1,i2,i3,i4)$
+		}$
+		predicate4( input1){
+			insidePredicate1 = !(doruk1)$
+			return call predicate1(i1,i2,i3,i4)$
+		}$
+
+		# for loop structure which includes initialization of predicate1 which is declared above
+		for(oguz1 = true$ oguz1 == (_doruk3_)$){
+				call predicate1(i1,i2,i3,i4)$
+		}$
+
+		# list initialization
+		list l1 = {b, c, true, false}$
+
+		# while loop structure which includes list element assignment statement in it's body.
+		while(whileVar1 == (true)){
+				l1[1] = true$
+		}$
+		
+		# end of the program
+
+} 
